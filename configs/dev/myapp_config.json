@@ -1,0 +1,14 @@
+{
+  "service": {
+    "name": "myapp",
+    "version": "1.0.0",
+    "env": "dev",
+    "port": 8080,
+    "max_memory": "256MB",
+    "healthcheck": {
+      "endpoint": "/health",
+      "interval": "30s",
+      "timeout": "5s"
+    }
+  }
+}

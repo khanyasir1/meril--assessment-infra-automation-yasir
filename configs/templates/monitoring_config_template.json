@@ -1,0 +1,25 @@
+{
+    "monitoring": {
+      "service_name": "{{ service_name }}",
+      "environment": "{{ environment }}",
+      "metrics": {
+        "collection_interval": "{{ metrics_interval | default('60s') }}",
+        "retention_period": "{{ retention_period | default('7d') }}"
+      },
+      "alerts": {
+        "enabled": {{ alerts_enabled | default('true') }},
+        "channels": ["{{ alert_channel | default('slack') }}"],
+        "thresholds": {
+          "cpu_percent": {{ cpu_threshold | default('80') }},
+          "memory_mb": {{ memory_threshold | default('512') }},
+          "response_time_ms": {{ response_threshold | default('1000') }}
+        }
+      },
+      "healthcheck": {
+        "endpoint": "{{ health_endpoint | default('/health') }}",
+        "expected_status": {{ expected_status | default('200') }},
+        "timeout": "{{ health_timeout | default('5s') }}"
+      }
+    }
+  }
+  

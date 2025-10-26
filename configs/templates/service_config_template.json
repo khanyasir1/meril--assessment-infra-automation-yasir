@@ -1,0 +1,14 @@
+{
+  "service": {
+    "name": "{{ service_name }}",
+    "version": "{{ version }}",
+    "env": "{{ environment }}",
+    "port": {{ port }},
+    "max_memory": "{{ max_memory }}",
+    "healthcheck": {
+      "endpoint": "{{ health_endpoint | default('/health') }}",
+      "interval": "{{ health_interval | default('30s') }}",
+      "timeout": "{{ health_timeout | default('5s') }}"
+    }
+  }
+}
