@@ -504,8 +504,3 @@ python cli.py monitor health --env prod --service-name myapp --cpu-threshold 80 
 - [x] Thumbnail added (`docs/video_thumbnail.png`)  
 - [x] Example configs for dev & prod  
 ````
-
----
-
-Would you like me to now add the **bonus code snippets (parallel ops, diff/backup, email alerts)** right after the "Bonus Features" section in this same format for your README?
-That’ll make it look more impressive and technically complete.
