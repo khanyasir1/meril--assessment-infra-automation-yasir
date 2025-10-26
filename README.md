@@ -421,11 +421,10 @@ pytest --cov=src tests/
 5. 90s — Code walkthrough  
 6. 30s — Bonus & trade-offs  
 7. 30s — Wrap-up  
+ 
 
-📺 **Thumbnail Idea**  
-> Text: “Infra Automation — Demo + Tests”  
-> Subtext: “8-min walkthrough | Python • SSH • Jinja2”  
-> Size: 1280×720px | Bold font | Contrast colors  
+📺 **Project Explanation - Video:** [Watch Here](https://your-video-link.com)
+
 
 ---
 
@@ -490,7 +489,6 @@ python cli.py config deploy configs/prod/myapp.json --env prod --target-path /et
 python cli.py monitor health --env prod --service-name myapp --cpu-threshold 80 --memory-threshold 80 --host-index 0
 ```
 
-💡 *Use this appendix for quick demo/testing across both environments.*
 
 ---
 
@@ -501,6 +499,5 @@ python cli.py monitor health --env prod --service-name myapp --cpu-threshold 80 
 - [x] README.md complete  
 - [x] Tests passing (`pytest`)  
 - [x] Video walkthrough uploaded (unlisted)  
-- [x] Thumbnail added (`docs/video_thumbnail.png`)  
 - [x] Example configs for dev & prod  
 ````
