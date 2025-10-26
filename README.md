@@ -435,7 +435,6 @@ pytest --cov=src tests/
 - [Jinja2 Docs](https://jinja.palletsprojects.com/)  
 - [Click CLI](https://click.palletsprojects.com/)  
 - [pytest](https://docs.pytest.org/)  
-- [stress-ng](https://kernel.org/pub/linux/utils/kernel/stress/)  
 
 ---
 
