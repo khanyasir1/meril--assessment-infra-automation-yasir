@@ -131,20 +131,20 @@ python cli.py config generate \
   --memory 256MB \
   --output configs/dev/myapp_config.json
 ```
-![Generate Config](/service_manager/images/dev-config.png)
+![Generate Config](/images/dev-config.png)
 
 ### 2.2 Validate Config
 
 ```bash
 python cli.py config validate configs/dev/myapp_config.json
 ```
-![Validate Config](/service_manager/images/validate-dev-config.png)
+![Validate Config](images/validate-dev-config.png)
 ### 2.3 Deploy Config Locally
 
 ```bash
 python cli.py config deploy configs/dev/myapp_config.json --env dev --target-path /tmp/myapp_config_deployed.json --host-index 0
 ```
-![Deploy Config Locally](/service_manager/images/deploy-dev-config.png)
+![Deploy Config Locally](images/deploy-dev-config.png)
 ***
 
 ## 3. Dev Service Management
@@ -154,28 +154,28 @@ python cli.py config deploy configs/dev/myapp_config.json --env dev --target-pat
 ```bash
 python cli.py service status --env dev --service-name nginx --host-index 0
 ```
-![Service Status](/service_manager/images/service-nginx-status.png)
+![Service Status](images/service-nginx-status.png)
 
 ### 3.2 Stop Service
 
 ```bash
 python cli.py service stop --env dev --service-name nginx --host-index 0
 ```
-![Service Stop](/service_manager/images/service-nginx-stop.png)
+![Service Stop](images/service-nginx-stop.png)
 
 ### 3.3 Start Service
 
 ```bash
 python cli.py service start --env dev --service-name nginx --host-index 0
 ```
-![Service Start](/service_manager/images/service-nginx-start.png)
+![Service Start](images/service-nginx-start.png)
 
 ### 3.4 Restart Service
 
 ```bash
 python cli.py service restart --env dev --service-name nginx --host-index 0
 ```
-![Service Restart](/service_manager/images/service-nginx-restart.png)
+![Service Restart](images/service-nginx-restart.png)
 
 ***
 
@@ -186,28 +186,28 @@ python cli.py service restart --env dev --service-name nginx --host-index 0
 ```bash
 python cli.py monitor metrics --env dev --service-name nginx --host-index 0
 ```
-![Collect Metrics](/service_manager/images/nginx-metrics.png)
+![Collect Metrics](images/nginx-metrics.png)
 ### 4.2 Monitoring Dashboard (All Hosts)
 
 ```bash
 python cli.py monitor dashboard --env dev --service-name nginx
 
 ```
-![nginx Mon-tor](/service_manager/images/nginx-health.png)
+![nginx Mon-tor](images/nginx-health.png)
 
 ### 4.3 Health Check with Thresholds (raising alerts if thresholds crossed)
 
 ```bash
 python cli.py monitor health --env dev --service-name nginx --cpu-threshold 80 --memory-threshold 75 --host-index 0
 ```
-![Email Alert](/service_manager/images/nginx-alert.png)
+![Email Alert](images/nginx-alert.png)
 ### 4.4 Test Alert by Setting Low Threshold
 
 ```bash
 
 python cli.py monitor health --env dev --service-name nginx --cpu-threshold 0.1 --memory-threshold 0.1 --host-index 0
 ```
-![Email Alert](/service_manager/images/low-threshould.png)
+![Email Alert](images/low-threshould.png)
 
 Trigger alert by causing artificial CPU load:
 
@@ -224,21 +224,21 @@ Run all tests
 ```bash
 pytest
 ```
-![Pytest](/service_manager/images/pytest.png)
+![Pytest](images/pytest.png)
 Run tests with coverage
 
 ```bash
 pytest --cov=src tests/
 ```
-![Pytest](/service_manager/images/pytest-02.png)
+![Pytest](images/pytest-02.png)
 
 
 ```bash
 pytest tests/test_config_manager.py -v
 pytest tests/test_config_manager.py::test_generate_config_basic -v
 ```
-![Pytest](/service_manager/images/pytest-03.png)
-![Pytest](/service_manager/images/pytest-04.png)
+![Pytest](images/pytest-03.png)
+![Pytest](images/pytest-04.png)
 
 ***
 
@@ -253,7 +253,7 @@ pytest tests/test_config_manager.py::test_generate_config_basic -v
 - Create 3 EC2 Ubuntu 22.04 instances
 - Provide SSH keys and write public IPs in `configs/prod/hosts.yml`:
 
-![Prod ec2](/service_manager/images/prod-ec2.png)
+![Prod ec2](images/prod-ec2.png)
 
 ```yaml
 hosts:
@@ -302,14 +302,14 @@ python cli.py config generate \
   --memory 512MB \
   --output configs/prod/myapp_config.json
 ```
-![Prod ec2](/service_manager/images/prod-config-temp.png)
+![Prod ec2](images/prod-config-temp.png)
 
 ### 2.2 Ensure Remote Directory Exists
 
 ```bash
 ssh -i ~/.ssh/yasir-aws-meril.pem ubuntu@13.218.146.104 "sudo mkdir -p /etc/myapp && sudo chown ubuntu:ubuntu /etc/myapp"
 ```
-![Prod ec2](/service_manager/images/prod-myapp.png)
+![Prod ec2](images/prod-myapp.png)
 
 ### 2.3 Deploy Configuration to Hosts
 
@@ -318,7 +318,7 @@ Deploy to first host:
 ```bash
 python cli.py config deploy configs/prod/myapp_config.json --env prod --target-path /etc/myapp/config.json --host-index 0
 ```
-![Prod ec2](/service_manager/images/prod-deploy.png)
+![Prod ec2](images/prod-deploy.png)
 
 Deploy sequentially to all prod hosts:
 
@@ -329,7 +329,7 @@ done
 ```
 
 ***
-![Prod ec2](/service_manager/images/all-ec2-deploy.png)
+![Prod ec2](images/all-ec2-deploy.png)
 
 ## 3. Prod Service Management
 
@@ -338,28 +338,28 @@ done
 ```bash
 python cli.py service status --env prod --service-name myapp --all
 ```
-![Prod ec2](/service_manager/images/prod-status-all.png)
+![Prod ec2](images/prod-status-all.png)
 
 ### 3.2 Start Service on All Hosts
 
 ```bash
 python cli.py service start --env prod --service-name myapp --all
 ```
-![Prod ec2](/service_manager/images/start-all.png)
+![Prod ec2](images/start-all.png)
 
 ### 3.3 Stop Service on All Hosts
 
 ```bash
 python cli.py service stop --env prod --service-name myapp --all
 ```
-![Prod ec2](/service_manager/images/all-stop.png)
+![Prod ec2](images/all-stop.png)
 
 ### 3.4 Restart Service on First Host
 
 ```bash
 python cli.py service restart --env prod --service-name myapp --host-index 0
 ```
-![Prod ec2](/service_manager/images/all-restarted.png)
+![Prod ec2](images/all-restarted.png)
 ***
 
 ## 4. Prod Monitoring & Alerts
@@ -369,13 +369,13 @@ python cli.py service restart --env prod --service-name myapp --host-index 0
 ```bash
 python cli.py monitor dashboard --env prod --service-name myapp
 ```
-![Prod ec2](/service_manager/images/prod-monitor.png)
+![Prod ec2](images/prod-monitor.png)
 ### 4.2 Health Check & Alerts
 
 ```bash
 python cli.py monitor health --env prod --service-name myapp --cpu-threshold 80 --memory-threshold 80 --host-index 0
 ```
-![Prod ec2](/service_manager/images/prod-threshould.png)
+![Prod ec2](images/prod-threshould.png)
 ### 4.3 Force Alert (Low Threshold)
 
 ```bash
@@ -398,7 +398,7 @@ Run pytest as usual:
 pytest
 pytest --cov=src tests/
 ```
-![Prod ec2](/service_manager/images/prod-test.png)
+![Prod ec2](images/prod-test.png)
 
 
 ***
@@ -447,7 +447,7 @@ pytest --cov=src tests/
 
 📺 **Project Explanation - Video:** [Watch Here](https://www.canva.com/design/DAG24nY7obE/JdU5WcgHXALAKj9c8_jUTg/edit?utm_content=DAG24nY7obE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-![Demo ](/service_manager/images/thumbnail.png)
+![Demo ](images/thumbnail.png)
 ---
 
 ## 📚 Resources
