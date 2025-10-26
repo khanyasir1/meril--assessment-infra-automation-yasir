@@ -1,5 +1,8 @@
 .env
-.pytest_cache
+.pytest_cache/
 venv/
 script.sh
 test_email.py
+myapp.service
+myapp_service.sh
+start_script.sh
