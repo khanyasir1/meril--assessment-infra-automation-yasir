@@ -186,6 +186,8 @@ python cli.py monitor metrics --env dev --service-name nginx --host-index 0
 
 ```bash
 python cli.py monitor dashboard --env dev --service-name nginx
+python cli.py monitor health --env dev --service-name nginx --cpu-threshold 10 --memory-threshold 80 --host-index 0
+
 ```
 
 ### 4.3 Health Check with Thresholds (raising alerts if thresholds crossed)
@@ -197,6 +199,7 @@ python cli.py monitor health --env dev --service-name nginx --cpu-threshold 80 -
 ### 4.4 Test Alert by Setting Low Threshold
 
 ```bash
+
 python cli.py monitor health --env dev --service-name nginx --cpu-threshold 0.1 --memory-threshold 0.1 --host-index 0
 ```
 
